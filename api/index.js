@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.route.js";
+import authRouter from "./routes/auth.route.js";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,10 +15,15 @@ mongoose
     console.log("database connection unsuccessful: ", error);
   });
 
+// Initialize express application
 const app = express();
 
+app.use(express.json());
+
+// Create a server and choose a porta
 app.listen(3000, () => {
-  console.log("Server is running on port 3000!!");
+  console.log("Server is running on port 3000");
 });
 
 app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
