@@ -17,7 +17,7 @@ mongoose
 
 // Initialize express application
 const app = express();
-
+// allow the application to pass JSON data format
 app.use(express.json());
 
 // Create a server and choose a porta
