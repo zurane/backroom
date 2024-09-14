@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 mongoose
-
   .connect(process.env.MONGO) // This is to hide our URL connecting to our application database from the public in the env file.
   .then(() => {
     console.log("connection successful");
@@ -14,13 +13,11 @@ mongoose
   .catch((error) => {
     console.log("database connection unsuccessful: ", error);
   });
-
 // Initialize express application
 const app = express();
 // allow the application to pass JSON data format
 app.use(express.json());
-
-// Create a server and choose a porta
+// Create a server and choose a port
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
